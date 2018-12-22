@@ -1,0 +1,10 @@
+{
+  "id": "datapack-loader",
+  "name": "Datapack Loader",
+  "version": "1.0.0",
+  "side": "universal",
+  "mixins": {
+    "client": "modid.client.json",
+    "common": "modid.common.json"
+  }
+}

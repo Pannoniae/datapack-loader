@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "net.panno.datapackLoader.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MinecraftServerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
