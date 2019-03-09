@@ -1,10 +1,10 @@
 {
   "id": "datapack-loader",
   "name": "Datapack Loader",
-  "version": "1.0.0",
+  "description": "Gives mod pack authors the ability to globally define datapacks",
+  "version": "${version}",
   "side": "universal",
   "mixins": {
-    "client": "modid.client.json",
-    "common": "modid.common.json"
+    "common": "net.panno.datapackloader.common.json"
   }
 }
