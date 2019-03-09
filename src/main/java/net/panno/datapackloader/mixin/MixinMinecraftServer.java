@@ -1,6 +1,6 @@
-package net.panno.datapackLoader.mixin;
+package net.panno.datapackloader.mixin;
 
-import net.fabricmc.loader.FabricLoader;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.resource.FileResourcePackCreator;
 import net.minecraft.resource.ResourcePackContainer;
 import net.minecraft.resource.ResourcePackContainerManager;
@@ -15,15 +15,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.io.File;
 
 @Mixin(MinecraftServer.class)
-public class MinecraftServerMixin {
+public class MixinMinecraftServer {
 	@Shadow
-	private ResourcePackContainerManager<ResourcePackContainer> field_4595;
+	private ResourcePackContainerManager<ResourcePackContainer> resourcePackContainerManager;
 
 	@Inject(method = "method_3800",
 			at = @At(value = "INVOKE",
 			target = "Lnet/minecraft/resource/ResourcePackContainerManager;addCreator(Lnet/minecraft/resource/ResourcePackCreator;)V",
 					ordinal = 1))
 	public void method_3800(File file, LevelProperties properties, CallbackInfo info) {
-		field_4595.addCreator(new FileResourcePackCreator(new File(FabricLoader.INSTANCE.getGameDirectory(), "datapacks")));
+		resourcePackContainerManager.addCreator(new FileResourcePackCreator(new File(FabricLoader.getInstance().getGameDirectory(), "datapacks")));
 	}
 }
